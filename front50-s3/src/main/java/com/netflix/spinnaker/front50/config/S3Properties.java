@@ -22,6 +22,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 @ConfigurationProperties("spinnaker.s3")
 public class S3Properties extends S3BucketProperties {
   String rootFolder;
+  Boolean serverSideEncryption;
 
   @NestedConfigurationProperty
   S3FailoverProperties failover = new S3FailoverProperties();
@@ -32,6 +33,14 @@ public class S3Properties extends S3BucketProperties {
 
   public void setRootFolder(String rootFolder) {
     this.rootFolder = rootFolder;
+  }
+
+  public Boolean getServerSideEncryption() {
+    return serverSideEncryption;
+  }
+
+  public void setServerSideEncryption(Boolean serverSideEncryption) {
+    this.serverSideEncryption = serverSideEncryption;
   }
 
   public S3FailoverProperties getFailover() {
